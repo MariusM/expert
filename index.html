@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MedEx Modular</title>
+    <script src="https://cdn.jsdelivr.net/npm/tau-prolog@0.3.2/modules/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tau-prolog@0.3.2/modules/lists.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+        input, button { padding: 10px; font-size: 1em; margin-top: 10px; width: 100%; }
+        pre { background: #f4f4f4; padding: 10px; white-space: pre-wrap; }
+        .example { cursor: pointer; color: blue; text-decoration: underline; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h2>MedEx: Modular Medical Expert System</h2>
+    <input type="text" id="symptomInput" placeholder="Enter symptom...">
+    <button onclick="querySymptom()">Diagnose</button>
+    <pre id="results">Awaiting input...</pre>
+
+
+	<script src="prolog/organs.js"></script>
+	<script src="prolog/symptoms.js"></script>
+	<script src="prolog/diseases.js"></script>
+	<script src="prolog/relationships.js"></script>
+	<script src="prolog/progressions.js"></script>
+	<script src="prolog/rules.js"></script>
+	<script src="prolog/test_rules.js"></script>
+	<script src="prolog/treatment_rules.js"></script>
+	<script src="prolog/treatments.js"></script>
+	<script src="prolog/lab_tests.js"></script>
+	
+
+	
+
+    <script src="main.js"></script>
+	
+	
+	<h3>Examples of possible diseases:</h3>
+    <div id="examples">
+        <span class="example" onclick="runExample('yellow_skin')">yellow_skin</span>
+        <span class="example" onclick="runExample('jaundice')">jaundice</span>
+        <span class="example" onclick="runExample('chest_pain')">chest_pain</span>
+        <span class="example" onclick="runExample('shortness_of_breath')">shortness_of_breath</span>
+        <span class="example" onclick="runExample('fatigue')">fatigue</span>
+        <span class="example" onclick="runExample('headache')">headache</span>
+        <span class="example" onclick="runExample('blurred_vision')">blurred_vision</span>
+        <span class="example" onclick="runExample('dizziness')">dizziness</span>
+        <span class="example" onclick="runExample('nausea')">nausea</span>
+        <span class="example" onclick="runExample('abdominal_pain')">abdominal_pain</span>
+        <span class="example" onclick="runExample('itching')">itching</span>
+        <span class="example" onclick="runExample('pale_skin')">pale_skin</span>
+        <span class="example" onclick="runExample('dark_urine')">dark_urine</span>
+        <span class="example" onclick="runExample('swelling_legs')">swelling_legs</span>
+        <span class="example" onclick="runExample('memory_loss')">memory_loss</span>
+        <span class="example" onclick="runExample('weight_loss')">weight_loss</span>
+    </div>
+
+<h3>Advanced Example Queries</h3>
+<div id="advanced-examples" class="examples">
+  <div class="example" onclick="runExample('possible_treatment(chest_pain, Treatment).')">
+    Treatments for chest_pain
+  </div>
+  <div class="example" onclick="runExample('suggested_treatment(hepatitis, Treatment).')">
+    Suggested treatments for hepatitis
+  </div>
+  <div class="example" onclick="runExample('suggested_test(jaundice, Test).')">
+    Recommended tests for jaundice
+  </div>
+  <div class="example" onclick="runExample('possible_treatment(chest_pain, Treatment).')">
+    Possible treatments for chest pain
+  </div>
+  <div class="example" onclick="runExample('progresses_to(hepatitis, Disease).')">
+    Diseases hepatitis can progress to
+  </div>
+  <div class="example" onclick="runExample('possible_organ(yellow_skin, Organ).')">
+    Organ possibly involved with yellow skin
+  </div>
+  <div class="example" onclick="runExample('has_symptom(Disease, headache), has_symptom(Disease, memory_loss).')">
+    Diseases with both headache and memory loss
+  </div>
+  <div class="example" onclick="runExample('related_to(fatigue, Organ).')">
+    Organs possibly linked to fatigue
+  </div>
+  <div class="example" onclick="runExample('treatment(Disease, insulin).')">
+    What is treated with insulin?
+  </div>
+  <div class="example" onclick="runExample('test_indicates(liver_function_test, Disease).')">
+    What can liver function tests detect?
+  </div>
+</div>
+
+</body>
+</html>
